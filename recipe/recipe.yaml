@@ -83,7 +83,7 @@ tests:
         - nccl
         - nccl.bindings
         - nccl.core
-      pip_check: true
+      pip_check: false  # https://github.com/conda-forge/cuda-python-feedstock/issues/205
   # Verify the single CUDA-13 build resolves cleanly in a CUDA 12 runtime.
   # This is the payoff of the `ignore_run_exports` above: one artifact is
   # expected to serve both CUDA majors. The `cuda-version 12.*` constraint
@@ -104,7 +104,6 @@ tests:
       - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.__version__)"
     requirements:
       run:
-        - cuda-python !=13.3.0 # https://github.com/conda-forge/cuda-python-feedstock/issues/205
         - python
         - cuda-version 13.*
 
