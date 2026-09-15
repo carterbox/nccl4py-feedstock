@@ -104,6 +104,7 @@ tests:
       - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.__version__)"
     requirements:
       run:
+        - cuda-python !=13.3.0 # https://github.com/conda-forge/cuda-python-feedstock/issues/205
         - python
         - cuda-version 13.*
 
