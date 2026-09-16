@@ -92,14 +92,14 @@ tests:
   # per-test `requirements:` overrides on python: tests — script: tests
   # honor them, which is what we need here.
   - script:
-      - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.__version__)"
+      - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.core.__version__)"
     requirements:
       run:
         - python
         - cuda-version 12.*
   # Same, but forcing a CUDA 13 runtime.
   - script:
-      - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.__version__)"
+      - python -c "import nccl, nccl.bindings, nccl.core; print(nccl.core.__version__)"
     requirements:
       run:
         - python
